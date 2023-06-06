@@ -95,17 +95,17 @@ linkml_examples:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema1:name ],
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty schema1:identifier ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty schema1:description ],
         [ a owl:Restriction ;
-            owl:onClass linkml:Uriorcurie ;
-            owl:onProperty schema1:identifier ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty schema1:name ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema1:Thing .
 
@@ -114,16 +114,16 @@ linkml_examples:Person a owl:Class,
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml_examples:PersonStatus ;
-            owl:onProperty linkml_examples:vital_status ],
+            owl:onClass linkml:String ;
+            owl:onProperty schema1:email ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Integer ;
             owl:onProperty linkml_examples:age_in_years ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema1:email ],
+            owl:onClass linkml_examples:PersonStatus ;
+            owl:onProperty linkml_examples:vital_status ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Date ;

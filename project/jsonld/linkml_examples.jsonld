@@ -495,7 +495,7 @@
   "source_file": "linkml_examples.yaml",
   "source_file_date": "2023-06-06T09:31:24",
   "source_file_size": 2197,
-  "generation_date": "2023-06-06T09:31:34",
+  "generation_date": "2023-06-06T09:54:38",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/linkml_examples.context.jsonld",

@@ -1,0 +1,50 @@
+id: https://w3id.org/linkml/examples/Donorinfo
+name: donorinfo
+prefixes:                                  
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  Donorinfo: https://w3id.org/linkml/examples/Donorinfo/
+  ORCID: https://orcid.org/
+imports:
+  - linkml:types
+default_range: string
+  
+classes:
+  Donor:
+    class_uri: schema:Donor             
+    attributes:
+      id:
+        identifier: true
+      full_name:
+        required: true
+        description:
+          name of the Donor
+        slot_uri: schema:name            
+      aliases:
+        multivalued: true
+        description:
+          other names for the Donor     
+      age:
+        range: integer
+        minimum_value: 0
+        maximum_value: 200
+      status:
+        description: >-
+          vital status of the Donor
+        range: DonorStatus       ## see "enums" section below
+    id_prefixes:
+      - ORCID
+  Container:
+    attributes:
+      donors:
+        multivalued: true
+        inlined_as_list: true
+        range: Donor
+
+enums:
+  DonorStatus:
+    permissible_values:
+      ALIVE:
+      DEAD:
+      UNKNOWN:
+      UNDEAD:

@@ -13,14 +13,14 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path schema1:description ] ;
+            sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass schema1:Thing .
 
 linkml_examples:PersonCollection a sh:NodeShape ;
@@ -37,19 +37,20 @@ linkml_examples:Person a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Person" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:description "Date on which a person is born" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path schema1:birthDate ],
-        [ sh:description "The main email address of a person" ;
+    sh:property [ sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path schema1:email ;
             sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path linkml_examples:vital_status ],
         [ sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:order 6 ;
@@ -59,14 +60,13 @@ linkml_examples:Person a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 4 ;
             sh:path schema1:identifier ],
+        [ sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema1:birthDate ],
         [ sh:description "Number of years since birth" ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path linkml_examples:age_in_years ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path linkml_examples:vital_status ] ;
+            sh:path linkml_examples:age_in_years ] ;
     sh:targetClass linkml_examples:Person .
 
